@@ -24,10 +24,10 @@ add_executable (Tet_two "sources/Tet_two.cpp"
 find_package(Boost REQUIRED COMPONENTS thread system filesystem locale)
 
 target_link_libraries(Tet_two Boost::thread Boost::system Boost::filesystem Boost::locale)
+
 file(COPY data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET Tet_two PROPERTY CXX_STANDARD 20)
 endif()
 
-# TODO: Add tests and install targets if needed.

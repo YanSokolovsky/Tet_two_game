@@ -6,7 +6,9 @@ int main()
 {
 	start_menu_ani ani;
 	ani.download_data();
+
 	boost::thread t(menu, ani);
 	t.join();
+
 	return 0;
 }

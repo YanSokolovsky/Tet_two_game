@@ -2,8 +2,8 @@
 
 void menu(start_menu_ani ani)
 {
+	set_console_size_by_chars(27, 65);
 	centralize_console();
-	set_console_size_by_chars(27, 65);// 64 35
 	invisible_cursor();
 	button_grid grid(ani);
 	click_handler_sm click_handler(grid);

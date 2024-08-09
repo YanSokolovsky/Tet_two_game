@@ -41,6 +41,22 @@ void set_console_size_by_chars(int rows, int columns)
 	std::string strBeforParam2 = " lines=";
 	std::string param2 = std::to_string(rows);
 	system((strBeforParam1 + param1 + strBeforParam2 + param2).c_str());
+
+	// Windows API implementtation... 
+	// For the bad future :)
+	/*HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	COORD bufferSize;
+	bufferSize.X = columns + 1;
+	bufferSize.Y = rows + 1;
+	SetConsoleScreenBufferSize(hConsole, bufferSize);
+
+	SMALL_RECT windowSize;
+	windowSize.Left = 0;
+	windowSize.Top = 0;
+	windowSize.Right = columns;
+	windowSize.Bottom = rows;
+	SetConsoleWindowInfo(hConsole, TRUE, &windowSize);*/
 }
 
 int get_pixel_console_width()
@@ -89,25 +105,11 @@ std::string read_from_file(std::string filename)
 		}
 	}
 	in.close();
+	resline.pop_back();
 	return resline;
 }
 
-std::string read_from_fileW(std::string filename) {
-	std::ifstream in;
-	in.open(filename, std::ifstream::in);
-	if (!in)
-	{
-		std::cout << "fdf";
-	}
-	std::string line,resline;
-	while (std::getline(in, line)) {
-		resline += line + "\n";
-	}
-	in.close();
-	return resline;
-}
-
-void clear_IObuffer()     // recomedation: clear console after using this function
+void clear_IObuffer()
 {
 	std::cin.clear();
 	std::cin.ignore(1000, '\n');
@@ -120,6 +122,12 @@ void console_write(std::string data)
 	std::cout << data;
 }
 
+void console_writeW(std::wstring data)
+{
+	SetConsoleOutputCP(CP_UTF8);
+	std::wcout << data;
+}
+
 void fast_console_write(std::string data)
 {
 	SetConsoleOutputCP(CP_UTF8);
@@ -129,7 +137,6 @@ void fast_console_write(std::string data)
 		return;
 	}
 
-	// Вывод строки в консоль
 	DWORD written;
 	if (!WriteConsoleA(hConsole, data.c_str(), data.size(), &written, NULL)) {
 		std::cerr << "Error! fast_console_write error." << std::endl;
