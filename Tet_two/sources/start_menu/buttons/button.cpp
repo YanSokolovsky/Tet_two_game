@@ -3,6 +3,7 @@
 button::button(std::string data_ani)
 {
 	select_animation = data_ani;
+	action = nullptr;
 };
 
 void button::draw_select_animation() const

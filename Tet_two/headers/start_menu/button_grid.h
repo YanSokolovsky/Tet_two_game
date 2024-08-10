@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "button.h"
+#include "action_menu.h"
 #include "start_menu_ani.h"
 
 // À structure that stores a grid (two-dimensional array) of buttons

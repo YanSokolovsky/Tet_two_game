@@ -28,6 +28,17 @@ button_grid::button_grid(start_menu_ani animations)
 	button help(animations.start_menu_HELP);
 	button exit(animations.start_menu_EXIT);
 
+	start.action = static_cast<click_action*>(new click_START());
+	setup.action = static_cast<click_action*>(new click_SETUP());
+	score.action = static_cast<click_action*>(new click_SCORE());
+	right1.action = static_cast<click_action*>(new click_1RIGHT());
+	left1.action = static_cast<click_action*>(new click_1LEFT());
+	left2.action = static_cast<click_action*>(new click_2LEFT());
+	info.action = static_cast<click_action*>(new click_INFO());
+	right2.action = static_cast<click_action*>(new click_2RIGHT());
+	help.action = static_cast<click_action*>(new click_HELP());
+	exit.action = static_cast<click_action*>(new click_EXIT());
+
 	row1.push_back(start);
 	row1.push_back(right1);
 	row1.push_back(left2);

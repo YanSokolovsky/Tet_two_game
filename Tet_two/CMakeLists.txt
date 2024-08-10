@@ -16,9 +16,10 @@ add_executable (Tet_two "sources/Tet_two.cpp"
                         "sources/start_menu/start_menu_ani.cpp"
                         "sources/start_menu/button_grid.cpp"
                         "sources/start_menu/buttons/button.cpp"
-                        "sources/start_menu/click_actions/action_menu1.cpp"
+                        "sources/start_menu/click_actions/action_menu.cpp"
                         "sources/start_menu/click_handler/click_handler_sm.cpp"
-                        "sources/start_menu/menu_thread.cpp")
+                        "sources/start_menu/menu_thread.cpp"
+                        "sources/start_menu/click_actions/params.cpp")
 
 
 find_package(Boost REQUIRED COMPONENTS thread system filesystem locale)

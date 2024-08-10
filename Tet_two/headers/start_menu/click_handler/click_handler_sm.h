@@ -1,8 +1,9 @@
 #pragma once
 
-#include "action_menu1.h"
+#include "action_menu.h"
 #include "button_grid.h"
 #include "console_functions.h"
+#include "params.h"
 
 class click_handler_sm
 {
