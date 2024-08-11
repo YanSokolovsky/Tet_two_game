@@ -126,14 +126,16 @@ void click_handler_sm::make_button_action()
 	if (GetAsyncKeyState(VK_RETURN) & 0x8000)
 	{
 		action_parameters param{};
-		param.a = &b_grid.y_coordinate;
+		param.y_demension_button_grid = &b_grid.y_coordinate;
+
 		b_grid.grid[b_grid.x_coordinate % 3][b_grid.y_coordinate % 6].action->action(param);
 		b_grid.grid[b_grid.x_coordinate % 3][b_grid.y_coordinate % 6].draw_select_animation();
 	}
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
 		action_parameters param{};
-		param.a = &b_grid.y_coordinate;
+		param.y_demension_button_grid = &b_grid.y_coordinate;
+
 		b_grid.grid[b_grid.x_coordinate % 3][b_grid.y_coordinate % 6].action->action(param);
 		b_grid.grid[b_grid.x_coordinate % 3][b_grid.y_coordinate % 6].draw_select_animation();
 	}

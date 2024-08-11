@@ -1,5 +1,7 @@
 #pragma once
 
+#include <process.h>
+
 #include "params.h"
 
 class click_action

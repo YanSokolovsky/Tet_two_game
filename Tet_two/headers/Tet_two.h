@@ -5,3 +5,4 @@
 
 #include <boost/thread.hpp>
 #include <iostream>
+#include <windows.h>

@@ -17,17 +17,17 @@ void click_SCORE::action(action_parameters param)
 
 void click_1RIGHT::action(action_parameters param)
 {
-	*param.a += 2;
+	*param.y_demension_button_grid += 2;
 };
 
 void click_1LEFT::action(action_parameters param)
 {
-	*param.a -= 2;
+	*param.y_demension_button_grid -= 2;
 };
 
 void click_2RIGHT::action(action_parameters param)
 {
-	*param.a += 2;
+	*param.y_demension_button_grid += 2;
 };
 
 void click_INFO::action(action_parameters param)
@@ -42,10 +42,11 @@ void click_HELP::action(action_parameters param)
 
 void click_EXIT::action(action_parameters param)
 {
+	exit(0);
 	return;
 };
 
 void click_2LEFT::action(action_parameters param)
 {
-	*param.a -= 2;
+	*param.y_demension_button_grid -= 2;
 }

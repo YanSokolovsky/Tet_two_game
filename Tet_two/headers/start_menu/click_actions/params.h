@@ -2,5 +2,5 @@
 
 struct action_parameters
 {
-	unsigned int* a;
+	unsigned int* y_demension_button_grid;
 };

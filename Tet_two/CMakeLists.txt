@@ -9,6 +9,7 @@ include_directories(headers/start_menu)
 include_directories(headers/start_menu/buttons)
 include_directories(headers/start_menu/click_actions)
 include_directories(headers/start_menu/click_handler)
+include_directories(headers/setup)
 
 # Add source to this project's executable.
 add_executable (Tet_two "sources/Tet_two.cpp"
@@ -19,7 +20,8 @@ add_executable (Tet_two "sources/Tet_two.cpp"
                         "sources/start_menu/click_actions/action_menu.cpp"
                         "sources/start_menu/click_handler/click_handler_sm.cpp"
                         "sources/start_menu/menu_thread.cpp"
-                        "sources/start_menu/click_actions/params.cpp")
+                        "sources/start_menu/click_actions/params.cpp"
+                        "sources/setup/setup.cpp")
 
 
 find_package(Boost REQUIRED COMPONENTS thread system filesystem locale)
