@@ -8,6 +8,7 @@
 
 include_directories(data)
 include_directories(headers)
+include_directories(headers/setup/parameters)
 include_directories(headers/start_menu)
 include_directories(headers/start_menu/buttons)
 include_directories(headers/start_menu/click_actions)
@@ -24,7 +25,8 @@ add_executable (Tet_two "sources/Tet_two.cpp"
                         "sources/start_menu/click_handler/click_handler_sm.cpp"
                         "sources/start_menu/menu_thread.cpp"
                         "sources/start_menu/click_actions/params.cpp"
-                        "sources/setup/setup.cpp")
+                        "sources/setup/setup.cpp"
+                        "sources/setup/parameters/height.cpp" "headers/setup/parameters/change_param.h")
 
 
 find_package(Boost REQUIRED COMPONENTS thread system filesystem)
