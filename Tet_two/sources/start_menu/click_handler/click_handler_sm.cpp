@@ -143,7 +143,7 @@ void click_handler_sm::make_button_action()
 
 void click_handler_sm::check_button_press()
 {
-	fast_console_write(read_from_file("data/start_menu(start).txt"));
+	fast_console_write(read_from_file("data/start_menu/start_menu(start).txt"));
 	while (true)
 	{
 		make_button_action();

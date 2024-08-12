@@ -105,7 +105,7 @@ std::string read_from_file(std::string filename)
 		}
 	}
 	in.close();
-	resline.pop_back();
+	//resline.pop_back();
 	return resline;
 }
 
@@ -138,7 +138,7 @@ void fast_console_write(std::string data)
 	}
 
 	DWORD written;
-	if (!WriteConsoleA(hConsole, data.c_str(), data.size(), &written, NULL)) {
+	if (!WriteConsoleA(hConsole, data.c_str(), static_cast<DWORD>(data.size()), &written, NULL)) {
 		std::cerr << "Error! fast_console_write error." << std::endl;
 		return;
 	}

@@ -3,6 +3,9 @@
 #
 
 # Including directoris with header files.
+
+# Set the runtime library for all targets
+
 include_directories(data)
 include_directories(headers)
 include_directories(headers/start_menu)
@@ -24,9 +27,9 @@ add_executable (Tet_two "sources/Tet_two.cpp"
                         "sources/setup/setup.cpp")
 
 
-find_package(Boost REQUIRED COMPONENTS thread system filesystem locale)
+find_package(Boost REQUIRED COMPONENTS thread system filesystem)
 
-target_link_libraries(Tet_two Boost::thread Boost::system Boost::filesystem Boost::locale)
+target_link_libraries(Tet_two Boost::thread Boost::system Boost::filesystem)
 
 file(COPY data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
