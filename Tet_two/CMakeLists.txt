@@ -26,7 +26,13 @@ add_executable (Tet_two "sources/Tet_two.cpp"
                         "sources/start_menu/menu_thread.cpp"
                         "sources/start_menu/click_actions/params.cpp"
                         "sources/setup/setup.cpp"
-                        "sources/setup/parameters/height.cpp" "headers/setup/parameters/change_param.h")
+                        "sources/setup/parameters/height.cpp"
+                        "sources/setup/parameters/width.cpp"
+                        "sources/setup/parameters/game_mode.cpp"
+                        "sources/setup/parameters/music.cpp"
+                        "sources/setup/parameters/sounds.cpp"
+                        "sources/setup/parameters/text_color.cpp"
+                        "sources/setup/parameters/back_color.cpp" "headers/setup/parameters/random_events.h" )
 
 
 find_package(Boost REQUIRED COMPONENTS thread system filesystem)

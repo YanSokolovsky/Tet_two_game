@@ -1,13 +1,13 @@
-#include "height.h"
+#include "width.h"
 
-height_param::height_param() : min_value{ 10 }, max_value{ 90 }
+width_param::width_param() : min_value{ 7 }, max_value{ 20 }
 {
-	value = 18;
+	value = 12;
 };
 
-void height_param::download_data(setup set)
+void width_param::download_data(setup set)
 {
-	std::string h = "data/setup/height/height";
+	std::string h = "data/setup/width/width";
 	int number = 1;
 	std::string txt = ".txt";
 	std::string name;
@@ -22,24 +22,24 @@ void height_param::download_data(setup set)
 	selector = value / ((max_value - min_value) / 8) % 8;
 };
 
-void height_param::draw_animation()
+void width_param::draw_animation()
 {
 	fast_console_write(animations[selector % 8]);
 };
 
-void height_param::change_minus()
+void width_param::change_minus()
 {
 	selector--;
 	value -= (max_value - min_value) / 8;
 };
 
-void height_param::change_plus()
+void width_param::change_plus()
 {
 	selector++;
 	value += (max_value - min_value) / 8;
 };
 
-void height_param::upload_data(setup* set)
+void width_param::upload_data(setup* set)
 {
-	set->height = value;
+	set->width = value;
 };

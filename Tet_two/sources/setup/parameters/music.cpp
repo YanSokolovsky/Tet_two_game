@@ -1,13 +1,13 @@
-#include "height.h"
+#include "music.h"
 
-height_param::height_param() : min_value{ 10 }, max_value{ 90 }
+music_param::music_param() : min_value{ 0 }, max_value{ 100 }
 {
 	value = 18;
 };
 
-void height_param::download_data(setup set)
+void music_param::download_data(setup set)
 {
-	std::string h = "data/setup/height/height";
+	std::string h = "data/setup/music/music";
 	int number = 1;
 	std::string txt = ".txt";
 	std::string name;
@@ -22,24 +22,24 @@ void height_param::download_data(setup set)
 	selector = value / ((max_value - min_value) / 8) % 8;
 };
 
-void height_param::draw_animation()
+void music_param::draw_animation()
 {
 	fast_console_write(animations[selector % 8]);
 };
 
-void height_param::change_minus()
+void music_param::change_minus()
 {
 	selector--;
 	value -= (max_value - min_value) / 8;
 };
 
-void height_param::change_plus()
+void music_param::change_plus()
 {
 	selector++;
 	value += (max_value - min_value) / 8;
 };
 
-void height_param::upload_data(setup* set)
+void music_param::upload_data(setup* set)
 {
-	set->height = value;
+	set->music = value;
 };

@@ -1,13 +1,13 @@
-#include "height.h"
+#include "falling_speed_param.h"
 
-height_param::height_param() : min_value{ 10 }, max_value{ 90 }
+falling_speed_param::falling_speed_param() : min_value{ 1 }, max_value{ 8 }
 {
-	value = 18;
+	value = 5;
 };
 
-void height_param::download_data(setup set)
+void falling_speed_param::download_data(setup set)
 {
-	std::string h = "data/setup/height/height";
+	std::string h = "data/setup/falling_speed/speed";
 	int number = 1;
 	std::string txt = ".txt";
 	std::string name;
@@ -18,28 +18,28 @@ void height_param::download_data(setup set)
 		ani = read_from_file(name);
 		animations.push_back(ani);
 	}
-	value = set.height;
+	value = set.falling_speed;
 	selector = value / ((max_value - min_value) / 8) % 8;
 };
 
-void height_param::draw_animation()
+void falling_speed_param::draw_animation()
 {
 	fast_console_write(animations[selector % 8]);
 };
 
-void height_param::change_minus()
+void falling_speed_param::change_minus()
 {
 	selector--;
 	value -= (max_value - min_value) / 8;
 };
 
-void height_param::change_plus()
+void falling_speed_param::change_plus()
 {
 	selector++;
 	value += (max_value - min_value) / 8;
 };
 
-void height_param::upload_data(setup* set)
+void falling_speed_param::upload_data(setup* set)
 {
-	set->height = value;
+	set->falling_speed = value;
 };
