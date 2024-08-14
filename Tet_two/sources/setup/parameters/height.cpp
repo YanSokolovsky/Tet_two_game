@@ -1,6 +1,6 @@
 #include "height.h"
 
-height_param::height_param() : min_value{ 10 }, max_value{ 90 }
+height_param::height_param() : min_value{ 10 }, max_value{ 40 }
 {
 	value = 18;
 };
@@ -19,7 +19,7 @@ void height_param::download_data(setup set)
 		animations.push_back(ani);
 	}
 	value = set.height;
-	selector = value / ((max_value - min_value) / 8) % 8;
+	selector = (value - min_value + 1) / ((max_value - min_value) / 8) % 8;
 };
 
 void height_param::draw_animation()
@@ -30,13 +30,15 @@ void height_param::draw_animation()
 void height_param::change_minus()
 {
 	selector--;
-	value -= (max_value - min_value) / 8;
+	if(value > min_value)
+		value -= (max_value - min_value) / 8;
 };
 
 void height_param::change_plus()
 {
 	selector++;
-	value += (max_value - min_value) / 8;
+	if(value < max_value)
+		value += (max_value - min_value) / 8;
 };
 
 void height_param::upload_data(setup* set)

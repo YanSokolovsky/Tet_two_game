@@ -18,8 +18,8 @@ void game_mode::download_data(setup set)
 		ani = read_from_file(name);
 		animations.push_back(ani);
 	}
-	value = set.height;
-	selector = value / ((max_value - min_value) / 3) % 3;
+	value = set.game_mode;
+	selector = (value - 1) % 3;
 };
 
 void game_mode::draw_animation()
@@ -30,13 +30,15 @@ void game_mode::draw_animation()
 void game_mode::change_minus()
 {
 	selector--;
-	value -= (max_value - min_value) / 3;
+	if (value > min_value)
+		value -= (max_value - min_value) / 3;
 };
 
 void game_mode::change_plus()
 {
 	selector++;
-	value += (max_value - min_value) / 3;
+	if (value < max_value)
+		value += (max_value - min_value) / 3;
 };
 
 void game_mode::upload_data(setup* set)

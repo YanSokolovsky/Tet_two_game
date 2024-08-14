@@ -5,9 +5,9 @@
 
 class game_mode : changeable_parameter
 {
-	const unsigned int min_value;
-	const unsigned int max_value;
-	unsigned int value;
+	const int min_value;
+	const int max_value;
+	int value;
 public:
 	game_mode();
 	void change_plus() override;

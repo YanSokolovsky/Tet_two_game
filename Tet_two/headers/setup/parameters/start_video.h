@@ -5,9 +5,7 @@
 
 class start_video_param : changeable_parameter
 {
-	const unsigned int min_value;
-	const unsigned int max_value;
-	unsigned int value;
+	bool value;
 public:
 	start_video_param();
 	void change_plus() override;

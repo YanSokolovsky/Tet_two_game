@@ -5,9 +5,9 @@
 
 class falling_speed_param : changeable_parameter
 {
-	const unsigned int min_value;
-	const unsigned int max_value;
-	unsigned int value;
+	const int min_value;
+	const int max_value;
+	int value;
 public:
 	falling_speed_param();
 	void change_plus() override;

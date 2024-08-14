@@ -6,10 +6,10 @@ struct setup
 	unsigned int width;
 	int falling_speed;
 	int game_mode;
-	int sounds;
-	int music;
-	int text_color;
-	int backgraund_color;
+	unsigned int sounds;
+	unsigned int music;
+	unsigned int text_color;
+	unsigned int backgraund_color;
 	bool start_video;
 	bool end_video;
 	int random_events;

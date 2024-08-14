@@ -1,6 +1,6 @@
 #include "end_video.h"
 
-end_video_param::end_video_param() : min_value{ 1 }, max_value{ 2 }
+end_video_param::end_video_param()
 {
 	value = 1;
 };
@@ -18,25 +18,25 @@ void end_video_param::download_data(setup set)
 		ani = read_from_file(name);
 		animations.push_back(ani);
 	}
-	value = set.height;
-	selector = value / ((max_value - min_value) / 2) % 2;
+	value = set.game_mode;
+	selector = 0;
 };
 
-void end_video_paramstart_video_param::draw_animation()
+void end_video_param::draw_animation()
 {
-	fast_console_write(animations[selector % 2]);
+	fast_console_write(animations[selector % 3]);
 };
 
 void end_video_param::change_minus()
 {
 	selector--;
-	value -= (max_value - min_value) / 2;
+	value = !value;
 };
 
 void end_video_param::change_plus()
 {
 	selector++;
-	value += (max_value - min_value) / 2;
+	value = !value;
 };
 
 void end_video_param::upload_data(setup* set)

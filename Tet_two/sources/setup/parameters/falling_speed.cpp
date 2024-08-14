@@ -1,4 +1,4 @@
-#include "falling_speed_param.h"
+#include "falling_speed.h"
 
 falling_speed_param::falling_speed_param() : min_value{ 1 }, max_value{ 8 }
 {
@@ -19,7 +19,7 @@ void falling_speed_param::download_data(setup set)
 		animations.push_back(ani);
 	}
 	value = set.falling_speed;
-	selector = value / ((max_value - min_value) / 8) % 8;
+	selector = value - 1;
 };
 
 void falling_speed_param::draw_animation()
@@ -30,13 +30,15 @@ void falling_speed_param::draw_animation()
 void falling_speed_param::change_minus()
 {
 	selector--;
-	value -= (max_value - min_value) / 8;
+	if (value > min_value)
+		value--;
 };
 
 void falling_speed_param::change_plus()
 {
 	selector++;
-	value += (max_value - min_value) / 8;
+	if (value < max_value)
+		value++;
 };
 
 void falling_speed_param::upload_data(setup* set)

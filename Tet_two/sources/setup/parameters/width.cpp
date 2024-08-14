@@ -18,8 +18,8 @@ void width_param::download_data(setup set)
 		ani = read_from_file(name);
 		animations.push_back(ani);
 	}
-	value = set.height;
-	selector = value / ((max_value - min_value) / 8) % 8;
+	value = set.width;
+	selector = (value - min_value + 1) / ((max_value - min_value) / 8) % 8;
 };
 
 void width_param::draw_animation()
@@ -30,13 +30,15 @@ void width_param::draw_animation()
 void width_param::change_minus()
 {
 	selector--;
-	value -= (max_value - min_value) / 8;
+	if(value > min_value)
+		value -= (max_value - min_value) / 8;
 };
 
 void width_param::change_plus()
 {
 	selector++;
-	value += (max_value - min_value) / 8;
+	if(value < max_value)
+		value += (max_value - min_value) / 8;
 };
 
 void width_param::upload_data(setup* set)
